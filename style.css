@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  height: 100vh;
+  background-image: url("https://s1.1zoom.me/b5050/552/Cards_Closeup_Ace_586728_1920x1080.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.container {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.guess {
+  width: 20rem;
+  padding: 1.2rem 2rem;
+}
+
+.answer {
+  width: 20rem;
+  padding: 1.2rem 2rem;
+  visibility: hidden;
+}
+
+.answer.active {
+  visibility: visible;
+}
+
+.image {
+  padding-top: 3rem;
+  margin-right: 6rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+input {
+  height: 25px;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 8px 0;
+  border-radius: 0.25rem;
+  font-family: inherit;
+}
+
+button {
+  width: 100%;
+  height: 25px;
+  margin: 8px 0;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background: #71ba51;
+  cursor: pointer;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #f0f2f5;
+  color: black;
+  padding: 2.4rem;
+  width: 90%;
+  height: 520px;
+  overflow-y: auto;
+  line-height: 2rem;
+
+  position: relative;
+  z-index: 1;
+}
+
+.modal-button {
+  height: 50px;
+  width: 100%;
+  margin: 8px 0;
+  padding: 0.6rem 0;
+
+  display: inline-block;
+  text-align: center;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background: #71ba51;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  .guess {grid-area: guess; }
+  .answer {grid-area: answer; }
+  .image {grid-area: image; }
+  .container {
+    display: grid;
+    grid-template-areas: "guess image" "answer image";
+    justify-content: space-around;
+  }
+
+  .guess,
+  .answer {
+    width: 26rem;
+  }
+
+  .modal {
+    width: auto;
+    height: auto;
+  }
+}
